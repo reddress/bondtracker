@@ -1,0 +1,10 @@
+{% extends 'reports/base.html' %}
+
+{% block title %}Bond - {{ bond }}{% endblock %}
+
+{% block content %}
+{{ bond }}
+
+{% include "reports/transactionList.html" %}
+
+{% endblock %}

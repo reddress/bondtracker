@@ -1,0 +1,10 @@
+.transactionsTable {
+    border-collapse: collapse;
+}
+
+.transactionsCell {
+    text-align: right;
+    border: 1px solid #aaa;
+    padding: 5px 20px;
+    font-size: 0.8em;
+}

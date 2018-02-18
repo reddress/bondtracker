@@ -1,0 +1,15 @@
+{% extends "reports/base.html" %}
+
+{% block title %}Brokers{% endblock %}
+
+{% block content %}
+
+<table>
+{% for bt in bondtypes %}
+
+    <tr><td><a href="/reports/by-bondtype/{{ bt.id }}">{{ bt }}</a></td></tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}

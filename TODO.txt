@@ -1,0 +1,35 @@
+[ok] Transaction: advertised return, such as 5.29%, Inflacao + 4.30%
+     CharField(32)
+
+[ok] Funds transfer between brokers
+
+[NO] Correcting mistakes: handle purchase/sale (transaction) edits
+
+[ok] Group transactions by bond (doesn't make too much sense to group
+     bonds of different maturities even when they are the same type)
+     Each line should pull latestPrice to estimate current value
+
+[ok] Group list of transactions by bond (dictionary with every bond
+     code and maturity and their total quantity)
+     
+[ok] Group by broker (like official site, giving total quantity
+     for each bond). Separate transactions by broker and apply the
+     function for grouping any given list of transactions
+
+[ok] Rename "record" to "add"
+
+[ok] Reports Index: View Portfolio: All, by Broker, by Bond Type
+     Portfolio is a list of the total quantity of a bond held.
+     Each line in portfolio pages represents a single bond
+
+[ok] Add broker column to transactions table
+
+[NO] Display fees in a table
+
+[ok] In transactions table, make each broker, bond type, maturity
+     clickable
+
+[ok] Sort bonds by maturity--JavaScript? Or just a new grouped view
+
+[ok] Aggregate pages: pull bond.latestPrice and Date and multiply by
+     quantity held, to show like official page

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Arimo';
+    src: url('/static/arimo.ttf') format('truetype');
+    font-style: normal;
+}
+
+body {
+    font-family: 'Arimo';
+}

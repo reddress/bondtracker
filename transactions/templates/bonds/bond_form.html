@@ -1,0 +1,18 @@
+{% extends "transactions/base.html" %}
+{% block title %}Add Bond{% endblock %}
+
+{% block content %}
+
+<p>
+    Add Bond
+</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit">
+</form>
+{% endblock %}

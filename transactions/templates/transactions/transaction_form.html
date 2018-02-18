@@ -1,0 +1,25 @@
+{% extends "transactions/base.html" %}
+
+{% block title %}Add Transaction{% endblock %}
+
+{% block content %}
+
+<p>
+    Add Transaction
+    <br>
+    <span style="color: red;">Note:</span> Run <code>python manage.py dumpdata &gt; dbdumps/FILENAME_OR_DATE.json</code> then store the file.
+</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit">
+</form>
+
+<script>
+    document.getElementById("id_transactionType").focus();
+</script>
+{% endblock %}

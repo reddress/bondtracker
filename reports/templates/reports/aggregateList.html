@@ -1,0 +1,51 @@
+{% load humanize %}
+
+total <span class="transactionsTotal">{{ total|intcomma }}</span>
+
+<table class="transactionsTable" id="transactionsTable">
+    <thead>
+        <tr>
+            <th class="transactionsCell">Bond Type</th>
+            <th class="transactionsCell">Maturity</th>
+            <th class="transactionsCell">Mat. YMD</th>
+            <th class="transactionsCell">Quantity</th>
+            <th class="transactionsCell">Total Price</th>
+            <th class="transactionsCell">Mkt. Price</th>
+            <th class="transactionsCell">Unit Price</th>
+            <th class="transactionsCell">Mkt. Date</th>
+            <th class="transactionsCell">Sort. Price</th>
+        </tr>
+    </thead>
+    
+    {% for bond in aggregates %}
+    <tr>
+        <td class="transactionsCell">
+            {% comment %} <a href="{% url 'reports:by-bond-type' aggregate.bond.bondtype.id %}">{{ bond.name }}</a> {% endcomment %}
+            {{ bond.name }}
+        </td>
+
+        <td class="transactionsCell">
+            <a href="{% url 'reports:by-bond' bond.id %}">
+                {{ bond.maturity }}
+            </a>
+        </td>
+        
+        <td class="transactionsCell">
+            {% comment %}
+            <!-- <a href="{% url 'reports:by-bond' aggregate.bond.id %}">{{ aggregate.bond.maturity|date:'Y-m-d' }}</a> -->
+            {% endcomment %}
+            {{ bond.maturityYMD }}
+        </td>
+        
+        <td class="transactionsCell">{{ bond.quantity|intcomma }}</td>
+        <td class="transactionsCell">{{ bond.totalPrice|intcomma }}</td>
+
+        <td class="transactionsCell">{{ bond.totalLatestPrice }}</td>
+        <td class="transactionsCell">{{ bond.latestPrice }}</td>
+        <td class="transactionsCell">{{ bond.latestPriceDate|date:'d/m/y' }}</td>
+        <td class="transactionsCell">{{ bond.sortablePrice }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script src="/static/reports/tablesorter.js"></script>

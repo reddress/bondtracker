@@ -1,0 +1,18 @@
+{% extends "transactions/base.html" %}
+{% block title %}Add Broker Fee{% endblock %}
+
+{% block content %}
+
+<p>
+    Add Fee
+</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit">
+</form>
+{% endblock %}

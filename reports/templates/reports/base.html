@@ -1,0 +1,31 @@
+{% extends 'sitewide/site.html' %}
+
+{% block nav %}
+
+<p>
+    <a href="/transactions/">Manage Transactions</a> | <a href="/admin/">Admin</a>
+</p>
+
+<form action="{% url 'reports:changeDates' %}" method="POST">
+    {% csrf_token %}
+
+    <a href="/reports/resetDates/?prevUrl={{ request.path }}">view all dates</a>
+    or view from
+    &nbsp;
+    <input type="text" name="from" size="10" value="{{ request.session.fromDate }}">
+
+    to
+
+    <input type="text" name="to" size="10" value="{{ request.session.toDate }}">
+
+    <input type="hidden" name="prevUrl" value="{{ request.path }}">
+    <input type="submit" value="go">
+</form> <!-- changeDates -->
+
+<pre>
+View transactions: <a href="/reports/all-transactions/">All</a>, <a href="/reports/brokers/">by Broker</a>, <a href="/reports/bondtypes/">by Bond Type</a>, or <a href="/reports/bonds/">by Bond</a>
+
+View aggregate: <a href="{% url "reports:aggregateByBroker" %}">by Broker</a>, <a href="{% url "reports:aggregateByBondType" %}">by Bond Type</a>, or <a href="{% url "reports:aggregateAll" %}">by Bond</a>
+</pre>
+
+{% endblock %}

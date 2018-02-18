@@ -1,0 +1,32 @@
+.transactionsTable {
+    border-collapse: collapse;
+}
+
+.transactionsCell {
+    text-align: right;
+    border: 1px solid #AAA;
+    padding: 4px 12px;
+    font-size: 0.7em;
+}
+
+.green {
+    color: #272;
+}
+
+.transactionsCell a {
+    text-decoration: none;
+}
+
+.bondsTable {
+    border-collapse: collapse;
+}
+
+.bondsCell {
+    text-align: left;
+    border: 1px solid #AAA;
+    padding: 5px;
+}
+
+.transactionsTotal {
+    font-size: 1.2em;
+}

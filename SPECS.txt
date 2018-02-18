@@ -1,0 +1,17 @@
+Because prices change daily, using a double-entry accounting system is
+prone to errors and confusion.
+
+First, Bonds (which belong to a BondType) are defined.
+
+An Investor wraps an User with a single currency symbol.
+
+An Investor has many Brokers. Accounts outside bond investments may be
+grouped into an "External" Broker.
+
+FundsTransfers move balances between Brokers.
+
+A TransactionType merely wraps +/-1, to increase or lower the balance
+of the Broker that handled the transaction.
+
+FundsTransfers and Transactions must not be done in the admin, because
+they affect the Brokers' balances.

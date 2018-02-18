@@ -1,0 +1,18 @@
+{% extends 'reports/base.html' %}
+
+{% block title %}Aggregate by Broker{% endblock %}
+
+{% block content %}
+Aggregate by Type
+
+{% for bondtype in bondtypes %}
+<p>
+    {{ bondtype.name }}
+    <br><br>    
+    {% include 'reports/aggregateListByBondType.html' %}
+    
+</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

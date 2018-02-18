@@ -1,0 +1,18 @@
+{% extends 'reports/base.html' %}
+
+{% block title %}Aggregate by Broker{% endblock %}
+
+{% block content %}
+Aggregate by Broker
+
+{% for broker in brokers %}
+<p>
+    {{ broker.name }}
+    
+    {% include 'reports/aggregateListByBroker.html' %}
+    
+</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

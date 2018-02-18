@@ -1,0 +1,15 @@
+{% extends "reports/base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+<table>
+{% for broker in brokers %}
+
+    <tr><td><a href="by-broker/{{ broker.id }}">{{ broker }}</a></td></tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}

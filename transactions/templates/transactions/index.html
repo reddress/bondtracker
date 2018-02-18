@@ -1,0 +1,33 @@
+{% extends "transactions/base.html" %}
+
+{% load humanize %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+<p>
+Brokers
+</p>
+
+<table class="transactionsTable">
+    {% for broker in brokers %}
+    <tr>
+        <td class="transactionsCell">{{ broker.name }}</td>
+        <td class="transactionsCell">{{ broker.balance|intcomma }}</td>
+    {% endfor %}
+</table>
+
+<p>
+Bonds added so far:
+</p>
+<table class="bondsTable">
+    {% for bond in bonds %}
+    <tr>
+        <td class="bondsCell">{{ bond.bondtype.code }}</td>
+        <td class="bondsCell">{{ bond.maturity|date:'d/m/y' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

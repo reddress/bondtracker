@@ -1,0 +1,17 @@
+{% extends 'sitewide/site.html' %}
+
+{% block nav %}
+<p>
+    <a href="/reports/">View Reports</a> | <a href="/admin/">Admin</a>
+</p>
+
+<p>
+    <a href="/admin/bonds/bond/">Admin Bonds</a>
+</p>
+            
+<pre>
+<a href="/transactions/">Summary of Brokers and Bonds</a> Create <a href="/bonds/bond/add/">Bonds</a>, <a href="/admin/transactions/broker/add/">Brokers</a> (using Admin)
+
+<a href="/transactions/fundstransfer/transfer/">Transfer Funds</a>, <a href="/transactions/transaction/add/">Add Transaction</a>, <a href="/transactions/fee/add/">Add Fee</a>
+</pre>
+{% endblock %}

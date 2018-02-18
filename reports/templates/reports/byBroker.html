@@ -1,0 +1,10 @@
+{% extends 'reports/base.html' %}
+
+{% block title %}Broker - {{ broker.name }}{% endblock %}
+
+{% block content %}
+{{ broker.name }}
+
+{% include "reports/transactionList.html" %}
+
+{% endblock %}

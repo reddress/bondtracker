@@ -1,0 +1,69 @@
+{% load humanize %}
+
+total <span class="transactionsTotal">{{ total|intcomma }}</span>
+
+<table class="transactionsTable" id="transactionsTable">
+    <thead>
+        <tr>
+            <th class="transactionsCell">Type</th>
+            <th class="transactionsCell">Tr. Date</th>
+            <th class="transactionsCell">Broker</th>
+            <th class="transactionsCell">Bond Type</th>
+            <!-- <th class="transactionsCell">Maturity</th> -->
+            <th class="transactionsCell">Mat. Yr</th>
+            <th class="transactionsCell">Qty</th>
+            <th class="transactionsCell">Total Price</th>
+            <th class="transactionsCell">CompRet</th>
+            <th class="transactionsCell">Sort Ret</th>
+            <th class="transactionsCell">Mkt. Price</th>
+            <th class="transactionsCell">Unit Pr</th>
+            <th class="transactionsCell">Latest Pr</th>
+            <th class="transactionsCell">Adv. Price</th>
+            <th class="transactionsCell">Notes</th>
+        </tr>
+    </thead>
+    
+    {% for transaction in transactions %}
+    <tr>
+        <td class="transactionsCell">{{ transaction.transactionType }}</td>
+        <td class="transactionsCell">{{ transaction.transactionDate|date:'Y-m-d' }}</td>
+
+        <td class="transactionsCell">
+            <a href="/reports/by-broker/{{ transaction.broker.id }}">{{ transaction.broker.name }}</a>
+        </td>
+        
+        <td class="transactionsCell">
+            <a href="{% url 'reports:by-bond-type' transaction.bond.bondtype.id %}">{{ transaction.bond.bondtype.code }}</a>
+        </td>
+
+        <!--
+        <td class="transactionsCell">
+            <a href="{% url 'reports:by-bond' transaction.bond.id %}">{{ transaction.bond.maturity|date:'d/m/y' }}</a>
+        </td>
+        -->
+        
+        <td class="transactionsCell">
+            <a href="{% url 'reports:by-bond' transaction.bond.id %}">{{ transaction.bond.maturity|date:'Y-m-d' }}</a>
+        </td>
+        
+        <td class="transactionsCell">
+            {% if transaction.transactionType.factor == 1 %}
+            <span style="color: red;">({{ transaction.quantity|intcomma }})</span>
+            {% else %}
+            {{ transaction.quantity|intcomma }}
+            {% endif %}
+        </td>
+        
+        <td class="transactionsCell">{{ transaction.totalPrice|intcomma }}</td>
+        <td class="transactionsCell">{{ transaction.annualizedRate }}</td>
+        <td class="transactionsCell green">{{ transaction.sortAnnualizedRate }}</td>
+        <td class="transactionsCell">{{ transaction.marketPrice }}</td>
+        <td class="transactionsCell">{{ transaction.unitPrice }}</td>
+        <td class="transactionsCell">{{ transaction.latestPriceDate|date:'d/m/y' }}</td>
+        <td class="transactionsCell">{{ transaction.advertisedReturn }}</td>
+        <td class="transactionsCell">{{ transaction.notes }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script src="/static/reports/tablesorter.js"></script>
