@@ -4,6 +4,8 @@
 
 {% block content %}
 All Transactions
+<br><br>
+<span style="color: red;">Backup:</span> Run <code>python.exe manage.py dumpdata &gt; dbdumps/FILENAME_OR_DATE.json</code> then store the file. '.exe' is needed in the new Windows Git Bash
 
 {% include "reports/transactionList.html" %}
 
