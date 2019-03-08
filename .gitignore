@@ -16,3 +16,5 @@ runserver
 
 # DB dumps
 dbdumps/
+
+*.json
